@@ -6,6 +6,10 @@ async def set_default_commands(dp):
         [
             types.BotCommand("start", "Botni ishga tushurish"),
             types.BotCommand("help", "Yordam"),
-            types.BotCommand('addmembers', 'foydalanuvchi qoshish')
+            types.BotCommand('changecity', 'shaharni o\'zgartirish'),
+            types.BotCommand('monthly', 'oylik taqvim'),
+            types.BotCommand('today', 'bugungi to\'liq taqvim'),
+            types.BotCommand('chooseday', 'aynan bir kunni taqvimini ko\'rish'),
+            types.BotCommand('allownotify', 'namoz vaqtida eslatish'),
         ]
     )
