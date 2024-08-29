@@ -1,14 +1,20 @@
-FROM python:3.11
+# Use an official Python runtime as a parent image
+FROM python:3.12
 
+# Set the working directory in the container
 WORKDIR /app
 
-COPY requirements.txt .
+# Copy the current directory contents into the container at /app
+COPY . /app
 
+# Install any needed packages specified in requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY . .
+# Expose the port that your app will run on
+EXPOSE 8000
 
-ENV PYTHONDONTWRITEBYTECODE=1
+# Define environment variable
 ENV PYTHONUNBUFFERED=1
 
-CMD ["python", "app.py"]
+# Run the command to start your application
+CMD ["python", "your_main_script.py"]
