@@ -1,7 +1,8 @@
-from sqlalchemy import Column, Integer, String, Boolean, create_engine,BigInteger
+from sqlalchemy import Column, Integer, String, Boolean, create_engine, BigInteger
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 from .database import Base
+
 
 class User(Base):
     __tablename__ = 'users'
@@ -9,7 +10,6 @@ class User(Base):
     telegram_id = Column(String, unique=True, nullable=False)
     city = Column(String, nullable=True)
     notify = Column(Boolean, default=False)
-
 
 
     def __repr__(self):
