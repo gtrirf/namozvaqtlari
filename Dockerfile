@@ -1,20 +1,17 @@
-# Use an official Python runtime as a parent image
+# Python rasmidan foydalanamiz
 FROM python:3.12
 
-# Set the working directory in the container
+# Ishlash katalogini o'rnatamiz
 WORKDIR /app
 
-# Copy the current directory contents into the container at /app
+# Dastur kodini konteynerga nusxalaymiz
 COPY . /app
 
-# Install any needed packages specified in requirements.txt
+# Dastur uchun zarur bo'lgan paketlarni o'rnatamiz
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Expose the port that your app will run on
+# Portni ochamiz
 EXPOSE 8000
 
-# Define environment variable
-ENV PYTHONUNBUFFERED=1
-
-# Run the command to start your application
-CMD ["python", "your_main_script.py"]
+# Dastur ishga tushiriladi
+CMD ["python", "app.py"]
