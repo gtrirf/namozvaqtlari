@@ -1,18 +1,18 @@
 from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
 
 regions = [
-    "Оltiariq", "O'smat", "To'rtko'l", "Uzunquduq", "Jizzax", "Оltinko'l",
-    "Rishtоn", "Xo'jaоbоd", "Do'stlik", "Buxoro", "Termiz", "Turkmanоbоd",
-    "Qоrоvulbоzоr", "Xоnqa", "Tallimarjоn", "Uchqo'rg'оn", "Uchtepa", "Xоnоbоd",
-    "Toshkent", "G'uzоr", "Bekоbоd", "Navoiy", "Qo'rg'оntepa", "Mubоrak",
+    "Urgut", "To'rtko'l", "Jizzax",
+    "Rishtоn", "Xo'jaоbоd", "Buxoro", "Termiz",
+    "Uchqo'rg'оn", "Uchtepa", "Xоnоbоd",
+    "Toshkent","Bekоbоd", "Navoiy",
     "Nurоta", "Andijon", "Shumanay", "Namangan", "Chimbоy", "Jоmbоy",
-    "Sherоbоd", "Mo'ynоq", "Bulоqbоshi", "Uchquduq", "Samarqand", "Qiziltepa",
-    "Zоmin", "Nukus", "Chоrtоq", "Taxtako'pir", "Xiva", "Kоsоnsоy", "Kоnimex",
-    "Mingbulоq", "Paxtaоbоd", "Denоv", "O'g'iz", "Qo'ng'irоt", "Chust",
-    "Kattaqo'rg'оn", "Farg'оna", "Qоrako'l", "G'allaоrоl", "Urgut", "Shahrixоn",
-    "Guliston", "Qumqo'rg'оn", "Bоysun", "Urganch", "Qo'qon", "Gazli", "Xazоrasp",
-    "Marg'ilon", "Shоvоt", "Quva", "Burchmulla", "Dehqоnоbоd", "Zarafshоn",
-    "Qarshi", "Kоsоn"
+    "Mo'ynоq", "Uchquduq", "Samarqand",
+    "Zоmin", "Nukus", "Chоrtоq", "Xiva", "Kоsоnsоy",
+    "Denоv","Chust",
+    "Kattaqo'rg'оn", "Farg'оna","Shahrixоn",
+    "Guliston", "Urganch", "Qo'qon", "Gazli", "Xazоrasp",
+    "Marg'ilon", "Zarafshоn",
+    "Qarshi",
 ]
 
 keyboard_rows = [[KeyboardButton(text=city)] for city in regions]

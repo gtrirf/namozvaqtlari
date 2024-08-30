@@ -9,7 +9,6 @@ from keyboards.default.menuKeyboard import menu, yes_or_no
 
 
 async def get_prayer_times(city: str):
-    """Fetch prayer times from API."""
     response = requests.get(f'https://islomapi.uz/api/present/day?region={city}')
     if response.status_code == 200:
         return response.json()
@@ -17,7 +16,6 @@ async def get_prayer_times(city: str):
 
 
 async def format_prayer_times(city: str, prayer_times: dict):
-    """Format prayer times for user display."""
     date_str = prayer_times['date']
     year, month, day = date_str.split('-')
     month_names_uz = {
@@ -43,7 +41,6 @@ async def format_prayer_times(city: str, prayer_times: dict):
 
 
 async def handle_prayer_times(message: Message, city: str):
-    """Handle the 'today' and 'changecity' commands."""
     prayer_times = await get_prayer_times(city)
     if prayer_times:
         formatted_text = await format_prayer_times(city, prayer_times)

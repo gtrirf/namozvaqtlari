@@ -4,6 +4,8 @@ import requests
 from datetime import datetime
 from utils.db_api.models import User
 from loader import bot, db_session
+from datetime import datetime, timedelta
+
 
 scheduler = AsyncIOScheduler()
 
@@ -22,11 +24,15 @@ def schedule_daily_prayer_times(user: User):
         for prayer_name, prayer_time in prayer_times.items():
             prayer_time_obj = datetime.strptime(prayer_time, "%H:%M").time()
 
+            prayer_time_datetime = datetime.combine(datetime.today(), prayer_time_obj)
+
+            notification_time = prayer_time_datetime - timedelta(minutes=10)
+
             scheduler.add_job(
                 send_prayer_notification,
                 'cron',
-                hour=prayer_time_obj.hour,
-                minute=prayer_time_obj.minute,
+                hour=notification_time.hour,
+                minute=notification_time.minute,
                 args=[user.telegram_id, prayer_name, prayer_time]
             )
     else:
