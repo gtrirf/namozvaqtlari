@@ -3,3 +3,4 @@ env
 __pycache__
 .env
 bot.log
+database.db
