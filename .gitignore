@@ -3,3 +3,5 @@ env
 __pycache__
 .env
 bot.log
+docker-compose.yml
+Dockerfile
