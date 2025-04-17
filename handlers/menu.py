@@ -36,7 +36,7 @@ async def format_prayer_times(city: str, prayer_times: dict):
         f"<b>Asr</b>: {prayer_times['times']['asr']}\n"
         f"<b>Shom</b>: {prayer_times['times']['shom_iftor']}\n"
         f"<b>Hufton</b>: {prayer_times['times']['hufton']}\n\n"
-        f"<b>Manba:</b> islom.uz\n\n"
+        f"<b>Manba:</b> islomapi.uz\n\n"
     )
 
 

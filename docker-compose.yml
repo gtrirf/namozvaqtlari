@@ -4,14 +4,5 @@ services:
     build: .
     ports:
       - "8000:8000"
-    depends_on:
-      - postgres
-    environment:
-      - DATABASE_URL=postgresql://postgres:2012@postgres:5432/namozvaqtlari
+    env_file: ".env"
 
-  postgres:
-    image: postgres
-    environment:
-      POSTGRES_PASSWORD: 2012
-    ports:
-      - "5432:5432"
