@@ -5,3 +5,4 @@ __pycache__
 bot.log
 docker-compose.yml
 Dockerfile
+database.db
