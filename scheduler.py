@@ -9,10 +9,19 @@ from datetime import datetime, timedelta
 
 scheduler = AsyncIOScheduler()
 
+PRAYER_NAMES = {
+    "tong_saharlik": "Bomdod",
+    "quyosh": "Quyosh",
+    "peshin": "Peshin",
+    "asr": "Asr",
+    "shom_iftor": "Shom",
+    "hufton": "Hufton"
+}
+
 async def send_prayer_notification(chat_id: int, prayer_name: str, prayer_time: str):
     await bot.send_message(
         chat_id=chat_id,
-        text=f"{prayer_name} vaqti!⏰ ({prayer_time})",
+        text=f"<b>{prayer_name}</b> vaqti kirdi!⏰ ({prayer_time})",
         parse_mode="HTML"
     )
 
@@ -23,10 +32,10 @@ def schedule_daily_prayer_times(user: User):
 
         for prayer_name, prayer_time in prayer_times.items():
             prayer_time_obj = datetime.strptime(prayer_time, "%H:%M").time()
-
+            prayer_name = PRAYER_NAMES[prayer_name]
             prayer_time_datetime = datetime.combine(datetime.today(), prayer_time_obj)
 
-            notification_time = prayer_time_datetime - timedelta(minutes=10)
+            notification_time = prayer_time_datetime
             job_id = f"{user.telegram_id}_{prayer_name}"
 
             existing_job = scheduler.get_job(job_id)
