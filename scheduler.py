@@ -27,13 +27,19 @@ def schedule_daily_prayer_times(user: User):
             prayer_time_datetime = datetime.combine(datetime.today(), prayer_time_obj)
 
             notification_time = prayer_time_datetime - timedelta(minutes=10)
+            job_id = f"{user.telegram_id}_{prayer_name}"
+
+            existing_job = scheduler.get_job(job_id)
+            if existing_job:
+                scheduler.remove_job(job_id)
 
             scheduler.add_job(
                 send_prayer_notification,
                 'cron',
                 hour=notification_time.hour,
                 minute=notification_time.minute,
-                args=[user.telegram_id, prayer_name, prayer_time]
+                args=[user.telegram_id, prayer_name, prayer_time],
+                id=job_id
             )
     else:
         print(f"Failed to  prayer times for user {user.telegram_id} from {user.city}")
@@ -43,6 +49,7 @@ def daily_task():
 
     for user in users:
         schedule_daily_prayer_times(user)
+
 
 scheduler.start()
 

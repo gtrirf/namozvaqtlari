@@ -1,4 +1,3 @@
-# test_db.py
 from sqlalchemy.orm import sessionmaker
 from utils.db_api.database import engine
 from utils.db_api.models import User
